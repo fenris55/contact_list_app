@@ -1,0 +1,36 @@
+<h2>New Contact:</h2>
+<form method="post" action="/contacts">
+  <ul>
+    <li>
+      <label for='name'>Name</label>
+      <input name="name" type="text" value="<%= params[:name] %>"></input>
+    </li>
+    <li>
+      <label for="phone">Phone Number</label>
+      <input name="phone" type="text" value="<%= params[:phone] %>"></input>
+    </li>
+    <li>
+      <label for="email">Email</label>
+      <input name="email" type="text" value="<%= params[:email] %>"></input>
+    </li>
+    <li>
+      <label for="type">How do you know this contact?</label>
+      <select name="type" value="<%= params[:type] %>">
+        <option value="" disabled>Select an option</option>
+        <option value="family">family</option>
+        <option value="friend">friend</option>
+        <option value="work">work</option>
+        <option value="school">school</option>
+        <option value="other">other</option>
+      </select>
+    </li>
+    <li>
+      <label for="notes">Additional Notes</label>
+      <textarea name="notes"></textarea>
+    </li>
+  <ul>
+  <button type="submit">Add New Contact</button>
+</form>
+
+<p><a href="/">Cancel</a></p>
+

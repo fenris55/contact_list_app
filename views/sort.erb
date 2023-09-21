@@ -1,0 +1,30 @@
+<a href="/">Home</a>
+<a href="/contacts">View All Contacts</a>
+<a href="/new">Add New Contact</a>
+
+<% if @selected_contacts.empty? %>
+  <p>You have no contacts labeled '<%= @sort_criteria %>'.</p>
+<% else %>
+  <p>Your <%= @sort_criteria %> contacts:</p>
+  <% @selected_contacts.each do |contact| %>
+    <p><%= contact[:name] %></p>
+    <a href="/contacts/<%= contact[:name] %>">See Contact Info</a>
+    <a href="/contacts/<%= contact[:name] %>/edit">Edit Contact</a>
+    <form method="post" action="/contacts/<%= contact[:name] %>/delete">
+      <button type="submit">Delete</button>
+    </form>
+  <% end %>
+ <% end %>
+ <form method="post" action="/sort">
+      <label for="type">View Sorted Contacts</label>
+      <select name="type">
+        <option value="" disabled selected>Select a type</option>
+        <option value="family">family</option>
+        <option value="friend">friend</option>
+        <option value="work">work</option>
+        <option value="school">school</option>
+        <option value="other">other</option>
+      <select>
+      <button type="submit">Sort</button>
+    <form>
+

@@ -1,0 +1,16 @@
+<%= @contact[:name] %>
+  <ul>
+    <li>Phone Number: <%= @contact[:phone] %></li>
+    <li>Email: <%= @contact[:email] %></li>
+    <li>Type: <%= @contact[:type] %></li>
+    <li>Notes: <%= @contact[:notes] %></li>
+  </ul>
+
+
+<a href="/contacts/<%= @contact[:name] %>/edit">Edit Contact</a>
+<a href="/contacts">View All Contacts</a>
+<a href="/">Home</a>
+
+<form method="post" action="/contacts/<%= @contact[:name] %>/delete">
+  <button type="submit">Delete Contact</button>
+</form>

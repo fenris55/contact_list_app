@@ -1,0 +1,37 @@
+<p>Editing info for: <%= @contact[:name] %></p>
+
+<form method="post" action="/contacts/<%= @contact[:name] %>">
+  <ul>
+    <li>
+      <label for='new_name'>Name</label>
+      <input name="new_name" type="text" value="<%= params[:new_name] || @contact[:name] %>"></input>
+    </li>
+    <li>
+      <label for="phone">Phone Number</label>
+      <input name="phone" type="text" value="<%= @contact[:phone] %>"></input>
+    </li>
+    <li>
+      <label for="email">Email</label>
+      <input name="email" type="text" value="<%= @contact[:email] %>"></input>
+    </li>
+    <li>
+      <label for="type">How do you know this contact?</label>
+      <select name="type">
+        <option value="" disabled selected>Select an option</option>
+        <option value="family">family</option>
+        <option value="friend">friend</option>
+        <option value="work">work</option>
+        <option value="school">school</option>
+        <option value="other">other</option>
+      </select>
+    </li>
+    <li>
+      <label for="notes">Additional Notes</label>
+      <textarea name="notes"><%= @contact[:notes] %></textarea>
+    </li>
+  <ul>
+  <button type="submit">Update Contact Info</button>
+</form>
+
+<p><a href="/">Cancel</a></p>
+
